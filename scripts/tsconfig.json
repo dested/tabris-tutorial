@@ -10,7 +10,8 @@
     "target": "es5",
     "experimentalDecorators": true,
     "inlineSourceMap": false,
-    "outDir": "../www/scripts/"
+    "outDir": "../www/scripts/",
+    "lib": ["ES2015","dom"]
   },
   "exclude": [
     "node_modules"

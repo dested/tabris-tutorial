@@ -1,26 +1,12 @@
 ﻿import * as tabris from "tabris";
 import {NYTResponse} from "./nyt";
 
-
-async function main() {
+async function main():Promise<void> {
 
     let page = new tabris.Page({
         topLevel: true,
         title: 'Home',
     });
-    /*
-     page.append(
-     new tabris.TextView({
-     layoutData: {
-     left: 0,
-     right: 0,
-     top: 0,
-     bottom: 0
-     },
-     alignment: 'center',
-     text: 'hi'
-     })
-     );*/
 
     page.open();
     let scrollView = new tabris.ScrollView({left: 0, right: 0, top: 0, bottom: 0, direction: 'vertical'});
@@ -50,22 +36,17 @@ async function main() {
 
         let image: tabris.ImageView;
         body.append(image = new tabris.ImageView({
-            layoutData: {
-                left: 0,
-                width: 100,
-                top: 0,
-                bottom: 0
-            },
+            left: 0,
+            width: 100,
+            top: 0,
+            bottom: 0,
             image: result.multimedia.filter(a => a.format == 'Normal')[0].url
         }));
         body.append(new tabris.TextView({
-            layoutData: {
-                left: [image, 5],
-                right: 0,
-                top: 0,
-                bottom: 0,
-            },
-
+            left: [image, 5],
+            right: 0,
+            top: 0,
+            bottom: 0,
             markupEnabled: true,
             text: result.title,
             font: '18px bold'
@@ -73,12 +54,10 @@ async function main() {
 
 
         body.append(new tabris.TextView({
-            layoutData: {
-                left: [image, 5],
-                right: 0,
-                top: 'prev()',
-                bottom: 0,
-            },
+            left: [image, 5],
+            right: 0,
+            top: 'prev()',
+            bottom: 0,
             markupEnabled: true,
             text: result.abstract,
             maxLines: 1,
